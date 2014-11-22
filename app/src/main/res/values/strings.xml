@@ -10,4 +10,20 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
 
+    <string-array name="distance_filter">
+        <item>200 mi</item>
+        <item>100 mi</item>
+        <item>60 mi</item>
+        <item>45 mi</item>
+        <item>30 mi</item>
+        <item>15 mi</item>
+        <item>5 mi</item>
+    </string-array>
+
+    <string-array name="category_filter">
+        <item>Sports</item>
+        <item>Concerts</item>
+        <item>Video Games</item>
+    </string-array>
+
 </resources>
