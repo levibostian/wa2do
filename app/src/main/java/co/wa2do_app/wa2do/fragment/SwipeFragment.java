@@ -44,9 +44,12 @@ public class SwipeFragment extends Fragment {
         mSwipeEventsAdapter.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
-                Toast.makeText(getActivity(), "remove item", Toast.LENGTH_SHORT).show();
                 events.remove(0);
                 adapter.notifyDataSetChanged();
+
+                if (events.size() == 0) {
+                    getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, EventFragment.newInstance()).commit();
+                }
             }
 
             @Override
@@ -61,7 +64,6 @@ public class SwipeFragment extends Fragment {
 
             @Override
             public void onAdapterAboutToEmpty(int i) {
-                Toast.makeText(getActivity(), "almost out of data", Toast.LENGTH_SHORT).show();
             }
         });
     }

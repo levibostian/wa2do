@@ -3,12 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Swipe away your interests"
+        android:paddingTop="25dp"
+        android:paddingBottom="18dp"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"/>
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/swipe_events_adapter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:rotation_degrees="16"
         app:max_visible="4"
         app:min_adapter_stack="6"
