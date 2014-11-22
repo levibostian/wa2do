@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/category_image"
@@ -16,28 +16,38 @@
             android:layout_height="35dp"
             tools:src="@drawable/ic_launcher"/>
 
-        <TextView
-            android:id="@+id/event_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:textSize="18sp"
-            tools:text="Racketball"/>
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/event_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:ellipsize="end"
+                tools:text="Racketball"/>
+
+            <TextView
+                android:id="@+id/event_organizer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/off_black"
+                tools:text="organized by: Levi Bostian"/>
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/event_organizer_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/off_black"
-        tools:text="Levi Bostian"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="8dp"
         android:weightSum="1">
 
         <View
