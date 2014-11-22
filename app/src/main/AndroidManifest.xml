@@ -3,12 +3,13 @@
     package="co.wa2do_app.wa2do" >
 
     <application
+        android:name=".application.Wa2DoApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="co.wa2do_app.wa2do.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
