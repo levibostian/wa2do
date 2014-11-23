@@ -2,8 +2,6 @@ package co.wa2do_app.wa2do.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import co.wa2do_app.wa2do.R;
 import co.wa2do_app.wa2do.application.Wa2DoApplication;
 import co.wa2do_app.wa2do.fragment.SwipeFragment;
@@ -30,28 +28,6 @@ public class MainActivity extends Activity {
         // TODO make the isUserBrowsedTopics() actually matter.
         if (!mUserUtil.isUserBrowsedTopics()) {
             getFragmentManager().beginTransaction().add(R.id.fragment_container, SwipeFragment.newInstance()).commit();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (id) {
-            case R.id.action_settings:
-                return true;
-            case R.id.action_reset:
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, SwipeFragment.newInstance()).commit();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
         }
     }
 

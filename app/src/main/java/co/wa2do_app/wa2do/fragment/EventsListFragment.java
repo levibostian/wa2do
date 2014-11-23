@@ -3,6 +3,9 @@ package co.wa2do_app.wa2do.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,7 +21,7 @@ import co.wa2do_app.wa2do.vo.InterestVo;
 
 import java.util.ArrayList;
 
-public class EventFragment extends Fragment {
+public class EventsListFragment extends Fragment {
 
     private Spinner mCategorySpinner;
     private Spinner mDistanceSpinner;
@@ -28,8 +31,8 @@ public class EventFragment extends Fragment {
 
     private ArrayList<InterestVo> mInterestedItems;
 
-    public static EventFragment newInstance(ArrayList<InterestVo> interestedItems) {
-        EventFragment eventFragment = new EventFragment();
+    public static EventsListFragment newInstance(ArrayList<InterestVo> interestedItems) {
+        EventsListFragment eventFragment = new EventsListFragment();
 
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(INTERESTS_KEY, interestedItems);
@@ -43,6 +46,7 @@ public class EventFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setHasOptionsMenu(true);
         mInterestedItems = getArguments().getParcelableArrayList(INTERESTS_KEY);
     }
 
@@ -93,6 +97,13 @@ public class EventFragment extends Fragment {
 
         EventsListAdapter eventsListAdapter = new EventsListAdapter(getActivity(), R.layout.events_list_row, getFilteredEvents());
         mEventsList.setAdapter(eventsListAdapter);
+
+        mEventsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO start event details fragment.
+            }
+        });
     }
 
     private ArrayList<EventVo> getFilteredEvents() {
@@ -108,6 +119,29 @@ public class EventFragment extends Fragment {
         }
 
         return filteredEvents;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.event_list_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.create_event:
+                getActivity().getFragmentManager()
+                             .beginTransaction()
+                             .replace(R.id.fragment_container, CreateEventFragment.newInstance())
+                             .addToBackStack(null)
+                             .commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }
