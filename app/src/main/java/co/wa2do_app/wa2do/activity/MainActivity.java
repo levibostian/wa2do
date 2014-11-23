@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import co.wa2do_app.wa2do.R;
 import co.wa2do_app.wa2do.application.Wa2DoApplication;
-import co.wa2do_app.wa2do.fragment.EventFragment;
 import co.wa2do_app.wa2do.fragment.SwipeFragment;
 import co.wa2do_app.wa2do.util.UserUtil;
 
@@ -28,10 +27,9 @@ public class MainActivity extends Activity {
     }
 
     private void setupFragment() {
+        // TODO make the isUserBrowsedTopics() actually matter.
         if (!mUserUtil.isUserBrowsedTopics()) {
             getFragmentManager().beginTransaction().add(R.id.fragment_container, SwipeFragment.newInstance()).commit();
-        } else {
-            getFragmentManager().beginTransaction().add(R.id.fragment_container, EventFragment.newInstance()).commit();
         }
     }
 

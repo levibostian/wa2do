@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import co.wa2do_app.wa2do.EventTypes;
+import co.wa2do_app.wa2do.InterestTypes;
 import co.wa2do_app.wa2do.R;
 import co.wa2do_app.wa2do.vo.EventVo;
 
@@ -57,7 +57,7 @@ public class EventsListAdapter extends ArrayAdapter<EventVo> {
 
         final EventVo event = mEvents.get(position);
 
-        viewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(event.eventType.accept(new EventTypes.Visitor<Integer>() {
+        viewHolder.categoryImage.setImageDrawable(mContext.getResources().getDrawable(event.eventType.accept(new InterestTypes.Visitor<Integer>() {
             @Override
             public Integer visitSports() {
                 return R.drawable.sports;

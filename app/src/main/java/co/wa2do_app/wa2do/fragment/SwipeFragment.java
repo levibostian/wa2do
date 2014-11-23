@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import co.wa2do_app.wa2do.InterestTypes;
 import co.wa2do_app.wa2do.R;
 import co.wa2do_app.wa2do.adapter.EventsSwipeCardAdapter;
 import co.wa2do_app.wa2do.vo.InterestVo;
@@ -33,33 +33,42 @@ public class SwipeFragment extends Fragment {
     }
 
     private void setupEventsAdapter() {
-        final ArrayList<InterestVo> events = new ArrayList<InterestVo>();
-        events.add(new InterestVo(R.drawable.sports, "Sports"));
-        events.add(new InterestVo(R.drawable.arts, "Arts"));
-        events.add(new InterestVo(R.drawable.games, "Video Games"));
+        final ArrayList<InterestVo> interests = new ArrayList<InterestVo>();
+        interests.add(new InterestVo(R.drawable.sports, InterestTypes.SPORTS));
+        interests.add(new InterestVo(R.drawable.arts, InterestTypes.ARTS));
+        interests.add(new InterestVo(R.drawable.games, InterestTypes.VIDEO_GAMES));
 
-        final EventsSwipeCardAdapter adapter = new EventsSwipeCardAdapter(getActivity(), R.layout.events_swipe_view, events);
+        final EventsSwipeCardAdapter adapter = new EventsSwipeCardAdapter(getActivity(), R.layout.events_swipe_view, interests);
+
+        final ArrayList<InterestVo> selectedInterests = new ArrayList<InterestVo>();
 
         mSwipeEventsAdapter.setAdapter(adapter);
         mSwipeEventsAdapter.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
-                events.remove(0);
-                adapter.notifyDataSetChanged();
-
-                if (events.size() == 0) {
-                    getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, EventFragment.newInstance()).commit();
-                }
             }
 
             @Override
             public void onLeftCardExit(Object o) {
-                Toast.makeText(getActivity(), "left exit", Toast.LENGTH_SHORT).show();
+                interests.remove(0);
+                adapter.notifyDataSetChanged();
+
+                if (interests.size() == 0) {
+                    getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, EventFragment.newInstance(selectedInterests)).commit();
+                }
             }
 
             @Override
             public void onRightCardExit(Object o) {
-                Toast.makeText(getActivity(), "right exit", Toast.LENGTH_SHORT).show();
+                // like interest
+                InterestVo interest = interests.remove(0);
+                selectedInterests.add(interest);
+
+                adapter.notifyDataSetChanged();
+
+                if (interests.size() == 0) {
+                    getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, EventFragment.newInstance(selectedInterests)).commit();
+                }
             }
 
             @Override

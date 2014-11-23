@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import co.wa2do_app.wa2do.InterestTypes;
 import co.wa2do_app.wa2do.R;
 import co.wa2do_app.wa2do.vo.InterestVo;
 
@@ -49,7 +50,22 @@ public class EventsSwipeCardAdapter extends ArrayAdapter<InterestVo> {
         final InterestVo interest = mInterests.get(position);
 
         viewHolder.eventImage.setImageDrawable(mContext.getResources().getDrawable(interest.eventImageRes));
-        viewHolder.eventName.setText(interest.eventName);
+        viewHolder.eventName.setText(interest.interest.accept(new InterestTypes.Visitor<CharSequence>() {
+            @Override
+            public CharSequence visitSports() {
+                return "Sports";
+            }
+
+            @Override
+            public CharSequence visitArts() {
+                return "Arts";
+            }
+
+            @Override
+            public CharSequence visitVideoGames() {
+                return "Video Games";
+            }
+        }));
 
         return swipeView;
     }

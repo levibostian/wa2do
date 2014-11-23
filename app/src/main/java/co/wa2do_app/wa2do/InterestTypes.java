@@ -1,6 +1,6 @@
 package co.wa2do_app.wa2do;
 
-public enum EventTypes {
+public enum InterestTypes {
     SPORTS {
         @Override
         public <E> E accept(Visitor<E> visitor) {
