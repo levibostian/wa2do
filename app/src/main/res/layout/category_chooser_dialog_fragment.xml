@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/sports_category"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:layout_weight=".5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/sports"/>
+
+        <ImageView
+            android:id="@+id/arts_category"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:layout_weight=".5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/arts"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/video_games_category"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:layout_weight=".5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/games"/>
+
+        <ImageView
+            android:id="@+id/drinking_category"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:layout_weight=".5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/drinking"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/exercise_category"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight=".5"
+            android:layout_margin="8dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/exercise"/>
+
+        <ImageView
+            android:id="@+id/book_club_category"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            android:layout_weight=".5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/bookclub"/>
+
+    </LinearLayout>
+
+</LinearLayout>

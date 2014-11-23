@@ -14,7 +14,8 @@ public class EventVo implements Parcelable {
     public int numberSpotsLeft;
     public int numberSpotsAvailable;
     public int distanceAway;
-    public int timeEventStarts;
+    public int hour;
+    public int minute;
 
     public EventVo(InterestTypes eventType,
                    String eventName,
@@ -25,7 +26,8 @@ public class EventVo implements Parcelable {
                    int numberSpotsLeft,
                    int numberSpotsAvailable,
                    int distanceAway,
-                   int timeEventStarts) {
+                   int hour,
+                   int minute) {
         this.eventType = eventType;
         this.eventName = eventName;
         this.organizerName = organizerName;
@@ -35,7 +37,8 @@ public class EventVo implements Parcelable {
         this.numberSpotsLeft = numberSpotsLeft;
         this.numberSpotsAvailable = numberSpotsAvailable;
         this.distanceAway = distanceAway;
-        this.timeEventStarts = timeEventStarts;
+        this.hour = hour;
+        this.minute = minute;
     }
 
     @Override
@@ -54,7 +57,8 @@ public class EventVo implements Parcelable {
         dest.writeInt(this.numberSpotsLeft);
         dest.writeInt(this.numberSpotsAvailable);
         dest.writeInt(this.distanceAway);
-        dest.writeInt(this.timeEventStarts);
+        dest.writeInt(this.hour);
+        dest.writeInt(this.minute);
     }
 
     private EventVo(Parcel in) {
@@ -67,7 +71,8 @@ public class EventVo implements Parcelable {
         this.numberSpotsLeft = in.readInt();
         this.numberSpotsAvailable = in.readInt();
         this.distanceAway = in.readInt();
-        this.timeEventStarts = in.readInt();
+        this.hour = in.readInt();
+        this.minute = in.readInt();
     }
 
     public static final Parcelable.Creator<EventVo> CREATOR = new Parcelable.Creator<EventVo>() {

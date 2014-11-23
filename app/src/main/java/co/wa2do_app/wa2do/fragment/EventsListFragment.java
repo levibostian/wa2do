@@ -95,8 +95,7 @@ public class EventsListFragment extends Fragment {
             }
         });
 
-        EventsListAdapter eventsListAdapter = new EventsListAdapter(getActivity(), R.layout.events_list_row, getFilteredEvents());
-        mEventsList.setAdapter(eventsListAdapter);
+        setupList(getFilteredEvents());
 
         mEventsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -108,6 +107,12 @@ public class EventsListFragment extends Fragment {
                              .commit();
             }
         });
+    }
+
+    private void setupList(ArrayList<EventVo> events) {
+        EventsListAdapter eventsListAdapter = new EventsListAdapter(getActivity(), R.layout.events_list_row, events);
+        mEventsList.setAdapter(eventsListAdapter);
+        eventsListAdapter.notifyDataSetChanged();
     }
 
     private ArrayList<EventVo> getFilteredEvents() {
@@ -137,9 +142,19 @@ public class EventsListFragment extends Fragment {
 
         switch (id) {
             case R.id.create_event:
+                CreateEventFragment fragment = CreateEventFragment.newInstance();
+                fragment.setListener(new CreateEventFragment.CreateEventListener() {
+                    @Override
+                    public void eventCreated(EventVo createdEvent) {
+                        ArrayList<EventVo> events = getFilteredEvents();
+                        events.add(createdEvent);
+                        setupList(events);
+                    }
+                });
+
                 getActivity().getFragmentManager()
                              .beginTransaction()
-                             .replace(R.id.fragment_container, CreateEventFragment.newInstance())
+                             .replace(R.id.fragment_container, fragment)
                              .addToBackStack(null)
                              .commit();
                 return true;

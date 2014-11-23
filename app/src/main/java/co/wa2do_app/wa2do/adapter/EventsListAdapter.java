@@ -92,7 +92,7 @@ public class EventsListAdapter extends ArrayAdapter<EventVo> {
         viewHolder.eventOrganizerName.setText("organized by: " + event.organizerName);
         viewHolder.numberOfSpotsLeft.setText(event.numberSpotsLeft + "/" + event.numberSpotsAvailable);
         viewHolder.distanceAway.setText(event.distanceAway+"mi");
-        viewHolder.timeEventStarts.setText("begins " + event.timeEventStarts + " min");
+        viewHolder.timeEventStarts.setText("begins " + event.hour + " min");
 
         return rowView;
     }

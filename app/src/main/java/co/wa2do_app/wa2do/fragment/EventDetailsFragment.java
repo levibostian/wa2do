@@ -103,7 +103,7 @@ public class EventDetailsFragment extends Fragment {
         mAddress.setText(mEvent.address);
         mCity.setText(mEvent.city + ",");
         mState.setText(mEvent.state);
-        mTime.setText("begins " + mEvent.timeEventStarts + "min");
+        mTime.setText("begins " + mEvent.hour + "min");
         mHowManyPeople.setText(mEvent.numberSpotsLeft + "/" + mEvent.numberSpotsAvailable);
 
         mDeclineEvent.setOnClickListener(new View.OnClickListener() {
