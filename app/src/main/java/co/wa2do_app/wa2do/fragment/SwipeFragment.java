@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import co.wa2do_app.wa2do.InterestTypes;
 import co.wa2do_app.wa2do.R;
 import co.wa2do_app.wa2do.adapter.EventsSwipeCardAdapter;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 public class SwipeFragment extends Fragment {
 
     private SwipeFlingAdapterView mSwipeEventsAdapter;
+    private ImageView mGreenThumb;
+    private ImageView mRedThumb;
 
     public static SwipeFragment newInstance() {
         return new SwipeFragment();
@@ -26,6 +29,8 @@ public class SwipeFragment extends Fragment {
         View view = inflater.inflate(R.layout.swipe_fragment, container, false);
 
         mSwipeEventsAdapter = (SwipeFlingAdapterView) view.findViewById(R.id.swipe_events_adapter);
+        mGreenThumb = (ImageView) view.findViewById(R.id.green_thumb);
+        mRedThumb = (ImageView) view.findViewById(R.id.red_thumb);
 
         setupEventsAdapter();
 
@@ -57,7 +62,10 @@ public class SwipeFragment extends Fragment {
                 adapter.notifyDataSetChanged();
 
                 if (interests.size() == 0) {
-                    getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, EventFragment.newInstance(selectedInterests)).commit();
+                    getActivity().getFragmentManager()
+                                 .beginTransaction()
+                                 .replace(R.id.fragment_container, EventFragment.newInstance(selectedInterests))
+                                 .commit();
                 }
             }
 
@@ -70,7 +78,10 @@ public class SwipeFragment extends Fragment {
                 adapter.notifyDataSetChanged();
 
                 if (interests.size() == 0) {
-                    getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, EventFragment.newInstance(selectedInterests)).commit();
+                    getActivity().getFragmentManager()
+                                 .beginTransaction()
+                                 .replace(R.id.fragment_container, EventFragment.newInstance(selectedInterests))
+                                 .commit();
                 }
             }
 

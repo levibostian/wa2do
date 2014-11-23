@@ -15,13 +15,64 @@
         android:textSize="24sp"
         android:gravity="center_horizontal"/>
 
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/swipe_events_adapter"
+    <FrameLayout
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.lorentzos.flingswipe.SwipeFlingAdapterView
+            android:id="@+id/swipe_events_adapter"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            app:rotation_degrees="16"
+            app:max_visible="4"
+            app:min_adapter_stack="6"
+            android:background="@android:color/white"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:rotation_degrees="16"
-        app:max_visible="4"
-        app:min_adapter_stack="6"
-        android:background="@android:color/white"/>
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <RelativeLayout
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="18dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/graythumbsdown"/>
+
+            <ImageView
+                android:id="@+id/red_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/redthumbsdown"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="18dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/graythumbsup"/>
+
+            <ImageView
+                android:id="@+id/green_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/greenthumbsup"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
 </LinearLayout>
