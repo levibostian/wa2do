@@ -65,6 +65,21 @@ public class EventsSwipeCardAdapter extends ArrayAdapter<InterestVo> {
             public CharSequence visitVideoGames() {
                 return "Video Games";
             }
+
+            @Override
+            public CharSequence visitDrinking() {
+                return "Drinking";
+            }
+
+            @Override
+            public CharSequence visitExercise() {
+                return "Exercise";
+            }
+
+            @Override
+            public CharSequence visitBookClub() {
+                return "Book Club";
+            }
         }));
 
         return swipeView;

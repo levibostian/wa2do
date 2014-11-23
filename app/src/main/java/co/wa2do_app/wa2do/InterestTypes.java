@@ -18,6 +18,24 @@ public enum InterestTypes {
         public <E> E accept(Visitor<E> visitor) {
             return visitor.visitVideoGames();
         }
+    },
+    DRINKING {
+        @Override
+        public <E> E accept(Visitor<E> visitor) {
+            return visitor.visitDrinking();
+        }
+    },
+    EXERCISE {
+        @Override
+        public <E> E accept(Visitor<E> visitor) {
+            return visitor.visitExercise();
+        }
+    },
+    BOOK_CLUB {
+        @Override
+        public <E> E accept(Visitor<E> visitor) {
+            return visitor.visitBookClub();
+        }
     };
 
     public abstract <E> E accept(Visitor<E> visitor);
@@ -26,5 +44,8 @@ public enum InterestTypes {
         E visitSports();
         E visitArts();
         E visitVideoGames();
+        E visitDrinking();
+        E visitExercise();
+        E visitBookClub();
     }
 }

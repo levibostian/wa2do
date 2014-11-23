@@ -72,6 +72,21 @@ public class EventsListAdapter extends ArrayAdapter<EventVo> {
             public Integer visitVideoGames() {
                 return R.drawable.games;
             }
+
+            @Override
+            public Integer visitDrinking() {
+                return R.drawable.drinking;
+            }
+
+            @Override
+            public Integer visitExercise() {
+                return R.drawable.exercise;
+            }
+
+            @Override
+            public Integer visitBookClub() {
+                return R.drawable.bookclub;
+            }
         })));
         viewHolder.eventName.setText(event.eventName);
         viewHolder.eventOrganizerName.setText("organized by: " + event.organizerName);

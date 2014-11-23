@@ -61,6 +61,21 @@ public class CategoryFilterAdapter extends ArrayAdapter<InterestVo> implements S
             public CharSequence visitVideoGames() {
                 return "Video Games";
             }
+
+            @Override
+            public CharSequence visitDrinking() {
+                return "Drinking";
+            }
+
+            @Override
+            public CharSequence visitExercise() {
+                return "Exercise";
+            }
+
+            @Override
+            public CharSequence visitBookClub() {
+                return "Book Club";
+            }
         }));
 
         return swipeView;
@@ -97,6 +112,21 @@ public class CategoryFilterAdapter extends ArrayAdapter<InterestVo> implements S
             @Override
             public CharSequence visitVideoGames() {
                 return "Video Games";
+            }
+
+            @Override
+            public CharSequence visitDrinking() {
+                return "Drinking";
+            }
+
+            @Override
+            public CharSequence visitExercise() {
+                return "Exercise";
+            }
+
+            @Override
+            public CharSequence visitBookClub() {
+                return "Book Club";
             }
         }));
 
