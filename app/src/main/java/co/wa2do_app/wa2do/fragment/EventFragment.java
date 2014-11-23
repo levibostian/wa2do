@@ -73,7 +73,7 @@ public class EventFragment extends Fragment {
 
         ArrayList<EventVo> events = new ArrayList<EventVo>();
         events.add(new EventVo(EventTypes.SPORTS, "Racketball", "Levi Bostian", 3, 5, 32, 5));
-        events.add(new EventVo(EventTypes.CONCERTS, "Nickelback", "Trevor Carlson", 999, 1000, 5, 12));
+        events.add(new EventVo(EventTypes.ARTS, "Nickelback", "Trevor Carlson", 999, 1000, 5, 12));
 
         EventsListAdapter eventsListAdapter = new EventsListAdapter(getActivity(), R.layout.events_list_row, events);
         mEventsList.setAdapter(eventsListAdapter);

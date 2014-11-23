@@ -64,13 +64,13 @@ public class EventsListAdapter extends ArrayAdapter<EventVo> {
             }
 
             @Override
-            public Integer visitConcerts() {
-                return R.drawable.concert;
+            public Integer visitArts() {
+                return R.drawable.arts;
             }
 
             @Override
             public Integer visitVideoGames() {
-                return R.drawable.video_games;
+                return R.drawable.games;
             }
         })));
         viewHolder.eventName.setText(event.eventName);

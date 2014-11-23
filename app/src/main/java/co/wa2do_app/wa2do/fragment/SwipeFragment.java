@@ -35,8 +35,8 @@ public class SwipeFragment extends Fragment {
     private void setupEventsAdapter() {
         final ArrayList<InterestVo> events = new ArrayList<InterestVo>();
         events.add(new InterestVo(R.drawable.sports, "Sports"));
-        events.add(new InterestVo(R.drawable.concert, "Concerts"));
-        events.add(new InterestVo(R.drawable.video_games, "Video Games"));
+        events.add(new InterestVo(R.drawable.arts, "Arts"));
+        events.add(new InterestVo(R.drawable.games, "Video Games"));
 
         final EventsSwipeCardAdapter adapter = new EventsSwipeCardAdapter(getActivity(), R.layout.events_swipe_view, events);
 

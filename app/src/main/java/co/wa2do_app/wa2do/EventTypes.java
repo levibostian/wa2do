@@ -7,10 +7,10 @@ public enum EventTypes {
             return visitor.visitSports();
         }
     },
-    CONCERTS {
+    ARTS {
         @Override
         public <E> E accept(Visitor<E> visitor) {
-            return visitor.visitConcerts();
+            return visitor.visitArts();
         }
     },
     VIDEO_GAMES {
@@ -24,7 +24,7 @@ public enum EventTypes {
 
     public interface Visitor <E> {
         E visitSports();
-        E visitConcerts();
+        E visitArts();
         E visitVideoGames();
     }
 }
