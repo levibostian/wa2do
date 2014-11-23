@@ -101,7 +101,11 @@ public class EventsListFragment extends Fragment {
         mEventsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO start event details fragment.
+                getActivity().getFragmentManager()
+                             .beginTransaction()
+                             .replace(R.id.fragment_container, EventDetailsFragment.newInstance(getFilteredEvents().get(position)))
+                             .addToBackStack(null)
+                             .commit();
             }
         });
     }

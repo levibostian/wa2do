@@ -8,15 +8,30 @@ public class EventVo implements Parcelable {
     public InterestTypes eventType;
     public String eventName;
     public String organizerName;
+    public String address;
+    public String city;
+    public String state;
     public int numberSpotsLeft;
     public int numberSpotsAvailable;
     public int distanceAway;
     public int timeEventStarts;
 
-    public EventVo(InterestTypes eventType, String eventName, String organizerName, int numberSpotsLeft, int numberSpotsAvailable, int distanceAway, int timeEventStarts) {
+    public EventVo(InterestTypes eventType,
+                   String eventName,
+                   String organizerName,
+                   String address,
+                   String city,
+                   String state,
+                   int numberSpotsLeft,
+                   int numberSpotsAvailable,
+                   int distanceAway,
+                   int timeEventStarts) {
         this.eventType = eventType;
         this.eventName = eventName;
         this.organizerName = organizerName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
         this.numberSpotsLeft = numberSpotsLeft;
         this.numberSpotsAvailable = numberSpotsAvailable;
         this.distanceAway = distanceAway;
@@ -33,6 +48,9 @@ public class EventVo implements Parcelable {
         dest.writeSerializable(this.eventType);
         dest.writeString(this.eventName);
         dest.writeString(this.organizerName);
+        dest.writeString(this.address);
+        dest.writeString(this.city);
+        dest.writeString(this.state);
         dest.writeInt(this.numberSpotsLeft);
         dest.writeInt(this.numberSpotsAvailable);
         dest.writeInt(this.distanceAway);
@@ -43,6 +61,9 @@ public class EventVo implements Parcelable {
         this.eventType = (InterestTypes) in.readSerializable();
         this.eventName = in.readString();
         this.organizerName = in.readString();
+        this.address = in.readString();
+        this.city = in.readString();
+        this.state = in.readString();
         this.numberSpotsLeft = in.readInt();
         this.numberSpotsAvailable = in.readInt();
         this.distanceAway = in.readInt();

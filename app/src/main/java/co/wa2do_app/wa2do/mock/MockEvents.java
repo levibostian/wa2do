@@ -9,8 +9,8 @@ public class MockEvents {
 
     public static ArrayList<EventVo> getEvents() {
         ArrayList<EventVo> events = new ArrayList<EventVo>();
-        events.add(new EventVo(InterestTypes.SPORTS, "Racketball", "Levi Bostian", 3, 5, 32, 5));
-        events.add(new EventVo(InterestTypes.ARTS, "Nickelback", "Trevor Carlson", 999, 1000, 5, 12));
+        events.add(new EventVo(InterestTypes.SPORTS, "Racketball", "Levi Bostian", "123 ABC St", "Miami", "FL", 3, 5, 32, 5));
+        events.add(new EventVo(InterestTypes.ARTS, "Nickelback", "Trevor Carlson", "456 D St", "Chicago", "IL", 999, 1000, 5, 12));
 
         return events;
     }
