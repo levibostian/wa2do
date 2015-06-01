@@ -3,6 +3,7 @@ package co.wa2do_app.wa2do.vo;
 import android.os.Parcel;
 import android.os.Parcelable;
 import co.wa2do_app.wa2do.InterestTypes;
+import co.wa2do_app.wa2do.vo.firebase.Event;
 
 public class EventVo implements Parcelable {
     public InterestTypes eventType;
@@ -11,11 +12,11 @@ public class EventVo implements Parcelable {
     public String address;
     public String city;
     public String state;
-    public int numberSpotsLeft;
-    public int numberSpotsAvailable;
-    public int distanceAway;
-    public int hour;
-    public int minute;
+    public long numberSpotsLeft;
+    public long numberSpotsAvailable;
+    public long distanceAway;
+    public long hour;
+    public long minute;
 
     public EventVo(InterestTypes eventType,
                    String eventName,
@@ -23,11 +24,11 @@ public class EventVo implements Parcelable {
                    String address,
                    String city,
                    String state,
-                   int numberSpotsLeft,
-                   int numberSpotsAvailable,
-                   int distanceAway,
-                   int hour,
-                   int minute) {
+                   long numberSpotsLeft,
+                   long numberSpotsAvailable,
+                   long distanceAway,
+                   long hour,
+                   long minute) {
         this.eventType = eventType;
         this.eventName = eventName;
         this.organizerName = organizerName;
@@ -39,6 +40,53 @@ public class EventVo implements Parcelable {
         this.distanceAway = distanceAway;
         this.hour = hour;
         this.minute = minute;
+    }
+
+    public static Event createEvent(EventVo eventVo) {
+        Event event = new Event(eventVo.eventType.accept(new InterestTypes.Visitor<InterestTypes>() {
+            @Override
+            public InterestTypes visitSports() {
+                return InterestTypes.SPORTS;
+            }
+
+            @Override
+            public InterestTypes visitArts() {
+                return InterestTypes.ARTS;
+            }
+
+            @Override
+            public InterestTypes visitVideoGames() {
+                return InterestTypes.VIDEO_GAMES;
+            }
+
+            @Override
+            public InterestTypes visitDrinking() {
+                return InterestTypes.DRINKING;
+            }
+
+            @Override
+            public InterestTypes visitExercise() {
+                return InterestTypes.EXERCISE;
+            }
+
+            @Override
+            public InterestTypes visitBookClub() {
+                return InterestTypes.BOOK_CLUB;
+            }
+        }),
+                                eventVo.eventName,
+                                eventVo.firstName,
+                                eventVo.lastName,
+                                eventVo.address,
+                                eventVo.city,
+                                eventVo.state,
+                                eventVo.numberSpotsLeft,
+                                eventVo.numberSpotsAvailable,
+                                eventVo.distanceAway,
+                                eventVo.hour,
+                                eventVo.minute);
+
+        return event;
     }
 
     @Override
@@ -54,11 +102,11 @@ public class EventVo implements Parcelable {
         dest.writeString(this.address);
         dest.writeString(this.city);
         dest.writeString(this.state);
-        dest.writeInt(this.numberSpotsLeft);
-        dest.writeInt(this.numberSpotsAvailable);
-        dest.writeInt(this.distanceAway);
-        dest.writeInt(this.hour);
-        dest.writeInt(this.minute);
+        dest.writeLong(this.numberSpotsLeft);
+        dest.writeLong(this.numberSpotsAvailable);
+        dest.writeLong(this.distanceAway);
+        dest.writeLong(this.hour);
+        dest.writeLong(this.minute);
     }
 
     private EventVo(Parcel in) {
@@ -68,11 +116,11 @@ public class EventVo implements Parcelable {
         this.address = in.readString();
         this.city = in.readString();
         this.state = in.readString();
-        this.numberSpotsLeft = in.readInt();
-        this.numberSpotsAvailable = in.readInt();
-        this.distanceAway = in.readInt();
-        this.hour = in.readInt();
-        this.minute = in.readInt();
+        this.numberSpotsLeft = in.readLong();
+        this.numberSpotsAvailable = in.readLong();
+        this.distanceAway = in.readLong();
+        this.hour = in.readLong();
+        this.minute = in.readLong();
     }
 
     public static final Parcelable.Creator<EventVo> CREATOR = new Parcelable.Creator<EventVo>() {

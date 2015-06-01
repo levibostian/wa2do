@@ -1,6 +1,7 @@
 package co.wa2do_app.wa2do.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,12 @@ public class EventsListAdapter extends ArrayAdapter<EventVo> {
         }
 
         ViewHolder viewHolder = (ViewHolder) rowView.getTag();
+
+        Log.d("checkMe", "class: " + mEvents.getClass().getSimpleName());
+
+        for (EventVo eventVo : mEvents) {
+            Log.d("checkMe", "event: " + eventVo);
+        }
 
         final EventVo event = mEvents.get(position);
 

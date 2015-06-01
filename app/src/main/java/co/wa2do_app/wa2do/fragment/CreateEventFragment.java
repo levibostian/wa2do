@@ -173,6 +173,13 @@ public class CreateEventFragment extends Fragment {
                                     5,
                                     mTimePickerFragment.getHour(),
                                     mTimePickerFragment.getMinute());
+<<<<<<< Updated upstream
+=======
+
+
+
+        return event;
+>>>>>>> Stashed changes
     }
 
 }
